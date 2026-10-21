@@ -10,6 +10,8 @@ services:
       - spark-network
     volumes:
       - ./dags:/opt/airflow/dags
+      - ./snowflake:/opt/airflow/sql
+      - ./output:/opt/airflow/in
 
   leader:
     build: ./leader
