@@ -68,8 +68,7 @@ create or replace table water_quality (
     water_temp number,
     salinity number,
     ph number,
-    nh3_n_mgl number,
-    no3_mgl number,
+    nh3_n_mgl number
     date datetime
 );
 

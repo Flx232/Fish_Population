@@ -34,7 +34,6 @@ select
     trim(wa:Salinity_ppt::number) as salinity, 
     trim(wa:pH::number) as ph,
     trim(wa:NH3_N_mgl::number) as nh3_n_mgl,
-    trim(wa:NO3_mgl::number) as no3_mgl,
     to_timestamp_ntz(trim(wa:SampleDate::string), 'MM/DD/YYYY HH24:MI')::date as sampling_date
     from raw_water_parquet r
     join water w on w.name = trim(r.wa:WaterBodyName::string);
