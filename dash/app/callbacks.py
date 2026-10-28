@@ -25,7 +25,7 @@ def _empty_fig(msg):
             showarrow=False, font=dict(size=14, color="#888"),
         )],
     )
-tab_values = ['title-tab', 'background-tab', 'data-source-tab', 'etl-tab', 'water-graphs', 'human-graphs', 'fish-table', 'correlation', 'time-graphs', 'reg-graphs']
+tab_values = ['title-tab', 'background-tab', 'data-source-tab', 'etl-tab', 'water-graphs', 'human-graphs', 'fish-table', 'correlation', 'time-graphs', 'reg-graphs', 'conclusion-tab', 'work-cited-tab']
 def get_slide_mech(app):
     @app.callback(
         Output('main-tabs', 'value'),

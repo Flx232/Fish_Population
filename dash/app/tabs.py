@@ -207,7 +207,7 @@ featured_fish_tab = dcc.Tab(
     children = [
     html.H1("Fish Featured in the Following Slides:", style=TITLE),
     dash_table.DataTable(
-        yearly_fish.groupby(['SCIENTIFIC_NAME', 'COMMON_NAME'], as_index=False)['SAMPLE_SIZE'].sum().astype({'SAMPLE_SIZE': int}).to_dict("records"),
+        specific_fish_species.groupby(['SCIENTIFIC_NAME', 'COMMON_NAME'], as_index=False)['SAMPLE_SIZE'].sum().astype({'SAMPLE_SIZE': int}).to_dict("records"),
         page_size=15, sort_action="native",
         style_table={'overflowX': 'scroll'},
     )
@@ -262,4 +262,130 @@ correlation_tab = dcc.Tab(
             dcc.Graph(figure=create_fish_cargo_corr(), style=GRAPH_LAYOUT),
         ], style=GRAPH_ROW),
     ]),
+])
+
+conclusion_tab = dcc.Tab(
+    label="Conclusion",
+    value="conclusion-tab",
+    children = [
+    html.H1("Conclusion", style=TITLE),
+    html.Ul([
+        html.Li([
+            "There is a direct correlation between human anthropomorphic climate change and a decline in marine life population in Tampa Bay.",
+            html.Ul([
+                html.Li([
+                    "Some correlation, although it is not direct."
+                ])
+            ])
+        ]),
+        html.Li([
+            "PH and Salinity rises with the temperature of the water.",
+            html.Ul([
+                html.Li([
+                    "True for PH, Not enough evidence for Salinity"
+                ]),
+                html.Li([
+                    "No significant correlation between salinity and the temperature of the water."
+                ])
+            ]),
+            html.Li([
+                "Positive correlation between the PH of the water with the temperature of the water"
+            ]),
+        ]),
+        html.Li([
+            "PH Change has an impact on the amount of dissolved gasses in the water.",
+            html.Ul([
+                html.Li([
+                    "Not enough evidence to support Hypothesis."
+                ]),
+                html.Li([
+                    "No strong correlation between PH and the amount of dissolved ammonia in the water."
+                ])
+            ])
+        ]),
+        html.Li([
+            "A growth in Sea Grass has a positive correlation with the population of marine life in the area.",
+            html.Ul([
+                html.Li([
+                    "Not true for every species."
+                ]),
+                html.Li([
+                    "Overall, no strong correlation between total fish sampling and sea grass coverage."
+                ]),
+                html.Li([
+                    "However, there was definitely a strong correlation between these two factors for specific species."
+                ]),
+            ])
+        ]),
+        html.Li([
+            "Increase of vessel presence leads to the decline of marine life and sea grass growth.",
+            html.Ul([
+                html.Li([
+                    "Fairly conclusive."
+                ]),
+                html.Li([
+                    "Significant correlation between seagrass coverage and total fish sample size with dock usage."
+                ]),
+                html.Li([
+                    "Points of interest is number of tons of cargo, amount of revenue from dock and wharfage usage, and amount of revenue generated from land leasing."
+                ]),
+            ])
+        ]),
+    ], style={
+        'fontSize': '20px',
+        'lineHeight': '1.6',
+        'maxWidth': '900px',
+        'margin': '0 auto',
+    }),
+])
+
+work_cited_tab = dcc.Tab(
+    label="Work Cited",
+    value="work-cited-tab",
+    children = [
+    html.H1("Work Cited", style=TITLE),
+    html.Ul([
+        html.Li([
+            "Tampa Port Authority (2025) Annual Revenue Report ",
+            html.A("https://flauditor.gov/pages/specialdistricts_efile%20rpts/2025%20tampa%20port%20authority.pdf", 
+                href="https://flauditor.gov/pages/specialdistricts_efile%20rpts/2025%20tampa%20port%20authority.pdf", 
+                target="_blank"),
+            html.Ul([
+                html.Li("Date of access: 10/12/2026")
+            ])
+        ]),
+        html.Li([
+            "Tampa Bay Estuary Program (2026-07-13) sgsegest ",
+            html.A("https://tbep-tech.r-universe.dev/datasets", 
+                href="https://tbep-tech.r-universe.dev/datasets", 
+                target="_blank"),
+            html.Ul([
+                html.Li("Date of access: 10/5/2026")
+            ])
+        ]),
+        html.Li([
+            "Sarasota County wateratlas Water Quality 2026 ",
+            html.A("https://sarasota.wateratlas.usf.edu/DataDownload/Default.aspx", 
+                href="https://sarasota.wateratlas.usf.edu/DataDownload/Default.aspx", 
+                target="_blank"),
+            html.Ul([
+                html.Li("Date of access: 10/10/2026")
+            ])
+        ]),
+        html.Li([
+            "Florida Fish and Wildlife Conservation Commission 2025 FL_Fisheries_Independent_Monitoring_Inshore_Stratified-Random_Sampling_Records, ",
+            html.A("https://data.florida-seacar.org/programs/details/69", 
+                href="https://data.florida-seacar.org/programs/details/69", 
+                target="_blank"),
+            html.Ul([
+                html.Li("Date of access: 10/11/2026")
+            ])
+        ]),
+    ], style={
+        'fontSize': '20px',
+        'lineHeight': '1.6',
+        'maxWidth': '900px',
+        'margin': '0 auto',
+        'wordBreak': 'break-word'
+    })
 ])

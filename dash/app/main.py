@@ -12,7 +12,10 @@ app.layout = [
         dcc.Store(id='selected-country', data=None),
         html.Div([
             dcc.Tabs(
-                [title_tab, background_tab, data_source_tab, etl_tab, water_feature_relations, cargo_feature_relations, featured_fish_tab, correlation_tab, time_graphs_tab, regression_graphs_tab],
+                [title_tab, background_tab, data_source_tab, 
+                 etl_tab, water_feature_relations, cargo_feature_relations, 
+                 featured_fish_tab, correlation_tab, time_graphs_tab, 
+                 regression_graphs_tab, conclusion_tab, work_cited_tab],
                 id='main-tabs',
                 value='title-tab',
                 style={'display': 'none'}
